@@ -1,0 +1,218 @@
+<!DOCTYPE html> 
+<!--<html xmlns="http://www.w3.org/1999/xhtml"> -->
+<head runat="server"> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+    <title>Analisis de Mercado</title> 
+
+    <style type="text/css"> 
+        body{ 
+            background-color: lightblue; 
+            margin-top: 9%; 
+            margin-right: auto; 
+            margin-left: auto; 
+            width: 90%; 
+            display: block; 
+            max-width: 1250px; 
+        }  
+        div{ 
+            background-color: aqua; 
+            margin-left: auto; 
+            margin-right: auto; 
+            width: 95%; 
+            color: black; 
+            max-width: 1000px; 
+        } 
+        h2 { 
+            margin-left: auto; 
+            margin-right: auto; 
+            align-content: center; 
+        } 
+		#sombra { 
+		  border: 1px solid; 
+		  padding: 10px; 
+		  box-shadow: 5px 9px; 
+		} 
+		.boton { 
+		  color: #fff !important; 
+		  font-size: 20px; 
+		  font-weight: 500; 
+		  padding: 0.5em 1.2em; 
+		  background: #318aac; 
+		  border: 2px solid; 
+		  border-color: #318aac; 
+		  position: relative; 
+		  margin-right: auto; 
+		  margin-left: auto; 
+		  align-content: center; 
+		} 
+		.boton:before { 
+		  content:""; 
+		  position: absolute; 
+		  top: 0px; 
+		  left: 0px; 
+		  width: 100%; 
+		  height: 0px; 
+		  background: rgba(255, 255, 255, 0.1); 
+		  transition: all 1s ease; 
+		}  
+		.boton:hover:before { 
+		  height: 100%; 
+		} 
+		.colores { 
+		  margin-top: 0%; 
+		  margin-bottom: 3%; 
+		  margin-left: 0%; 
+		  margin-right: 0%; 
+		  width: 100%; 
+		  height: auto; 
+		  background-color: none;/#9966FF;/ 
+		  animation-name: colorido; 
+		  animation-duration: 9s; 
+		} 
+		@media (max-width: 12rem) { 
+		  html { 
+			min-width: 12rem; 
+			} 
+		} 
+		@media (min-width:480px){  
+		/* smartphones, Android phones, landscape iPhone */  
+		} 
+		@media (min-width:600px){  
+		/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */  
+		} 
+		@media (min-width:801px){  
+		/* tablet, landscape iPad, lo-res laptops ands desktops */  
+		} 
+		@media (min-width:1025px){  
+		/* big landscape tablets, laptops, and desktops */  
+		} 
+		@media (min-width:1281px){  
+		/* hi-res laptops and desktops */  
+		} 
+    </style> 
+</head> 
+
+<body> 
+
+    <form id="form1" runat="server"> 
+
+        <h2 class="colores">Consume Api
+			</h2> 
+		
+        <div id="sombra" class="container"> 
+            <button class="boton">Consumir Servicio
+				</button> 
+        </div> 
+            <br> 
+        <h2 class="colores">Analiza Precios</h2> 
+
+        <div id="sombra"> 
+
+        <table class="table"> 
+
+          <thead> 
+            <tr> 
+              <th scope="col">idSeller</th> 
+              <th scope="col">Seller Name</th> 
+              <th scope="col">Marca</th> 
+              <th scope="col">Envio Gratis</th> 
+              <th scope="col">Logistica</th> 
+              <th scope="col">Ubicacion de Vendedor</th> 
+              <th scope="col">Condicion Articulo</th> 
+              <th scope="col">Precios</th> 
+            </tr> 
+          </thead> 
+		  
+          <tbody class="api"> 
+            <tr> 
+              <th scope="row"></th> 
+              <td></td> 
+              <td></td> 
+              <td></td> 
+              <td></td> 
+              <td></td> 
+              <td></td> 
+              <td></td> 
+            </tr> 
+          </tbody> 
+		  
+        </table> 
+		
+            <button class="boton" onclick="traer();"  
+            style="width: 33%; margin-left: auto; margin-right: auto; margin-top: 3%;">Ordenar Precios 
+                </button> 
+        </div> 
+    </form> 
+
+    <!--<script src="consume" type="module"></script>--> 
+
+    <script> 
+            const aplicacion = document.querySelector('.container'); 
+            const ML_URL = 'https://api.mercadolibre.com/sites/MLA/search?category=MLA1055';
+            fetch(ML_URL) 
+                .then(Response => Response.json()) 
+                .then(results => { 
+                    console.log(results);
+                    const p = document.createElement('p');
+                    p.innerHTML = results;
+                    aplicacion.appendChild(p);
+                }) 
+                .catch(error => console.log(error));
+    </script> 
+
+    <script> 
+    const ML_URL_1000 = "https://api.mercadolibre.com/sites/MLA/search?category=MLA1055"; 
+    var contenido = document.querySelector('#api'); 
+	var productos[];
+    function traer(){ 
+        fetch(ML_URL_1000) 
+            .then(response => response.json()) 
+            .then(results => { 
+					console.log(results.id);
+					console.log(results.site_id);
+					console.log(results.title);
+					console.log(results.seller);
+					console.log(results.seller);
+					console.log(results.price);
+				/*.then(id => {
+					.then(site_id { =>
+						.then(title => {
+							.then(seller => {
+								.then(price => {					
+										tabla(results); 
+									})
+								})
+							})
+						})
+					})*/
+			}) 
+           .catch(error => console.log(error));
+		//ordenamiento(productos[]);
+    }
+	/*function ordenamiento(int a[]){
+		int i,j;
+		int aux;
+		for(i=0;i<1000;i++){
+			j = i;
+			aux = a[i];
+			while(j>0 && aux<a[j-1]){
+				a[j] = a[j-1];
+				j--;
+			}
+			a[j] = aux;
+		}
+	}*/
+	</script>
+	<script>
+	var contenido_ = document.querySelector('.api');
+	function tabla(results) {
+		contenido_.inneHTML = '';
+		for (let val of results){  
+			var cont = document.getElementById(".api").innerHTML = "<tr> <th scope='row'>${val.id}</th> <td>${val.seller}</td> <td>${val.title}</td> <td>${val.free_shiping ? 'true' : 'false'}</td> <td>${val.logistic_type}</td> <td>${val.address}</td> <td>${val.condition}</td> <td>${val.price}</td> </tr>";
+		}
+    }
+	</script> 
+
+</body> 
+
+</html> 

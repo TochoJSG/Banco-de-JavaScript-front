@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+				*{
+					margin: 0;
+					padding: 0;
+					box-sizing: border-box;
+					font-family: 'Poppins',sans-serif;
+				}
+				.container{
+					width: 90%;
+					background: aqua;
+					margin-left: 5%;
+					margin-right: 5%;
+					margin-top: 85px;
+					height: auto;
+					display: block;
+				}
+				.container h6{
+					text-align: center;
+					color: navy;
+					font-size: 33px;
+					top: 9px;
+					bottom: 5px;
+				}
+				.container h2{
+					text-align: center;
+					color: blue;
+					font-size: 21px;
+				}
+				.container .row{
+					justify-content: center;
+					align-items: center;
+				}
+				.btn {
+				  color: #318aac !important;
+				  font-size: 20px;
+				  font-weight: 500;
+				  padding: 0.5em 1.2em;
+				  background: rgba(0,0,0,0.25);
+				  border: 2px solid;
+				  border-color: #318aac;
+				  transition: all 1s ease;
+				  position: relative;
+				  width: 50%;
+				  margin-left: 25%;
+				  margin-right: 25%;
+				  margin-bottom: 9px;
+				}
+				.btn:hover {
+				  background: #318aac;
+				  color: #fff !important;
+				}
+				
+				
+				
+			.navigation{
+				position: fixed;
+				
+				top: 0px;
+				left: 0px;
+				
+				height: 50px;
+				width: 250px;
+				background: #2196f3;
+				transition: 0.5s;
+				z-index: 100000;
+				overflow: hidden;
+			}
+			.navigation.active{
+				height: auto;
+				padding-bottom: 0;
+			}
+			.navigation .toggle{
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 50px;
+				background: #2196f3;
+				color: aqua;
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 0 20px;
+				font-size: 19px;
+				cursor: pointer;
+			}
+			.navigation .toggle:before{
+				content: 'Celulares';
+				margin-right: 10px;
+			}
+			.navigation .toggle.active:before{
+				content: 'Cerrar';
+				margin-right: 10px;
+			}
+			.navigation .toggle span{
+				position: relative;
+				width: 20px;
+				height: 50px;
+			}
+			.navigation .toggle span:before{
+				content: '';
+				position: absolute;
+				top: 20px;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background: #fff;
+				transition: 0.5s;
+			}
+			.navigation .toggle span:after{
+				content: '';
+				position: absolute;
+				bottom: 20px;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background: #fff;
+				transition: 0.5s;
+			}
+			.navigation .toggle.active span::before{
+				transform: rotate(225deg);
+				top: 24px;
+			}
+			.navigation .toggle.active span::after{
+				transform: rotate(135deg);
+				bottom: 24px;
+			}
+			.navigation ul{
+				position: relative;
+				background: #111;
+				height: auto;
+			}
+			.navigation ul li{
+				list-style: none;
+			}
+			.navigation ul li a{
+				position: relative;
+				text-decoration: none;
+				display: block;
+				padding: 10px 40px;
+				height: 50px;
+				color: #fff;
+				font-size: 17px;
+				transition: 1s;
+				
+				width: 100%;
+			}
+			.navigation ul li a:hover{
+				transition: 0s;
+				background: #2196f3;
+				width: 100%;
+			}			
+			.btn_ {
+			  color: rgba(255, 255, 255, 0.9) !important;
+			  font-size: 20px;
+			  font-weight: 500;
+			  padding: 0.5em 1.2em;
+			  background: #318aac;
+			  border: 2px solid;
+			  border-color: #318aac;
+			  position: relative;
+			  width: 50%;
+			  margin-left: 25%;
+			  margin-right: 25%;
+			  margin-bottom: 15px;
+			  height: auto;
+			}
+			.btn_:hover {
+			  color: rgba(255, 255, 255, 1) !important;
+			  box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+			  transition: all 0.2s ease;
+			}
+			.switch{
+				background: lightblue;
+				color: navy;
+				top: 0;
+				margin-left: 75%;
+				margin-right: 0%;
+				width: 25%;
+				height: auto;
+				padding: 5px 6px 5px 6px;
+				border-radius: 5px;
+			}
+			.switch:hover {
+			  color: rgba(255, 255, 255, 1) !important;
+			  box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+			  transition: all 0.2s ease;
+			}
